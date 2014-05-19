@@ -28,7 +28,7 @@ var express = require('express'),
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
+app.use(bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('secrets secrets, we got extra'));
 app.use(express.session());
@@ -66,8 +66,8 @@ module.exports = {
 	path: '/',
 
 	//this function gets passed the express object one time for any extra setup
-	init: function(app) { 
-		app.head(function(req, res) {});
+	init: function(app) {
+		//app.head doesn't work with newer express.js 
 	},
 
 	GET: function(req, res) {
@@ -75,7 +75,7 @@ module.exports = {
 	},
 	
 	POST: function(req, res) {
-		res.json(req.data);
+		res.json(req.body);
 	}
 };
 ```
@@ -112,3 +112,6 @@ module.exports = {
 	}
 }
 ```
+
+## Notes
+- As of Express 4.x, it's recommended to use `require('body-parser')()` instead of `express.bodyParser()`, check [`this`](http://stackoverflow.com/questions/5710358/how-to-get-post-query-in-express-node-js/20132867#20132867).

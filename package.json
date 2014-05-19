@@ -1,6 +1,6 @@
 {
 	"name": "dynamic-routes",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"description": "Dynamic routes for Express.JS",
 	"main": "./lib/dynamic-routes.js",
 	
@@ -28,6 +28,7 @@
 		"url": "https://github.com/OneOfOne/dynamic-routes.git"
 	},
 	"dependencies": {
-		"express": "3.x"
+		"express": ">= 3.x",
+		"body-parser": ">= 1.2.0"
 	}
 }
