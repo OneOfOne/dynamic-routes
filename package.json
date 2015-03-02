@@ -1,6 +1,6 @@
 {
 	"name": "dynamic-routes",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"description": "Dynamic routes for Express.JS",
 	"main": "./lib/dynamic-routes.js",
 	
