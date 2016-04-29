@@ -62,22 +62,82 @@ http.createServer(app).listen(app.get('port'), function(){
 ```js
 //routes/index.js
 module.exports = {
-	priority: 1000, //this is the `/` handler, should it should be the last route.
+	priority: 1000, //this is the `/` handler, therefore it should be the last route.
 	path: '/',
 
 	//this function gets passed the express object one time for any extra setup
 	init: function(app) {
-		//app.head doesn't work with newer express.js 
+		
 	},
-
+    
+    //a middleware that is called from any HTTP methods
+    ALL: function(req, res, next) {
+        res.send(' - Common Middleware -');
+        next();
+    }
+    
+    //HTTP method specific routes
 	GET: function(req, res) {
 		res.end('GET ');
 	},
 	
 	POST: function(req, res) {
-		res.json(req.body);
-	}
+        res.json(req.body);
+        res.end('POST ');
+	},
+    
+    //routes supports GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE, PATCH method(all uppercase)
 };
+```
+
+##### Routing multiple middlewares by assigning an array of middlewares :
+
+```js
+module.exports = {
+    priority: 1000,
+    path: '/',
+    
+    init: function(app){
+        
+    }
+    
+    ALL: [
+        function(req, res, next){
+            res.send(' - Common Middleware 1 - ');
+            next();
+        },
+        function(req, res, next){
+            res.send(' - Common Middleware 2 - ');
+            next();
+        }
+    ],
+    
+    GET: [
+        function(req, res, next){
+            res.send(' GET 1 ');
+            next();
+        },
+        function(req, res){
+            res.end('end of GET');
+        }
+    ],
+    
+    POST: [
+        function(req, res){
+            res.json(req.body);
+            res.end('end of POST');
+        }
+    ]
+    /* an array with single route, that is equivalent to
+    
+    POST: function(req, res){
+        res.json(req.body);
+        res.end('end of POST');
+    }
+    
+    */
+}
+
 ```
 
 ##### Using a function :
