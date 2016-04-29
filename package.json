@@ -1,34 +1,33 @@
 {
-	"name": "dynamic-routes",
-	"version": "0.1.0",
-	"description": "Dynamic routes for Express.JS",
-	"main": "./lib/dynamic-routes.js",
-	
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	
-	"keywords": [
-		"express",
-		"dynamic-routes",
-		"web",
-		"app"
-	],
-	
-	"author": {
-		"name": "Ahmed (OneOfOne) W.",
-		"email": "oneofone@gmail.com",
-		"url": "http://limitlessfx.com"
-	},
-	
-	"license": "Apache v2.0",
-	
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/OneOfOne/dynamic-routes.git"
-	},
-	"dependencies": {
-		"express": ">= 3.x",
-		"body-parser": ">= 1.2.0"
-	}
+  "name": "dynamic-routes",
+  "version": "0.1.0",
+  "description": "Dynamic routes for Express.JS",
+  "main": "./lib/dynamic-routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "dynamic-routes",
+    "web",
+    "app"
+  ],
+  "author": {
+    "name": "Ahmed (OneOfOne) W.",
+    "email": "oneofone@gmail.com",
+    "url": "https://github.com/OneOfOne"
+  },
+  "contributors": [
+    "Felipe Knappe",
+    "PaulSohn (https://github.com/PaulSohn)"
+  ],
+  "license": "Apache v2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OneOfOne/dynamic-routes.git"
+  },
+  "dependencies": {
+    "express": ">= 3.x",
+    "body-parser": ">= 1.2.0"
+  }
 }
